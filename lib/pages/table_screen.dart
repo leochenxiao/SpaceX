@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spacex/lanch.dart';
-import 'widget/scrollable_widget.dart';
+import 'package:spacex/services/lanch.dart';
+import 'package:spacex/widget/scrollable_widget.dart';
 
 class TableScreen extends StatefulWidget {
   //Pass variable object to widget
