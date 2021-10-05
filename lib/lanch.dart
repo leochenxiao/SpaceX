@@ -1,6 +1,4 @@
-// To parse this JSON data, do
-//
-//     final lanches = lanchesFromJson(jsonString);
+// Parse JSON nested data to dart model.
 
 import 'dart:convert';
 
@@ -20,26 +18,11 @@ class Lanches {
     this.isTentative,
     this.tentativeMaxPrecision,
     this.tbd,
-    // required this.launchWindow,
     this.rocket,
     this.ships,
-    //this.telemetry,
     this.launchSite,
     this.launchSuccess,
-    // required   this.launchFailureDetails,
-    //  required  this.links,
     this.details,
-    //   required   this.staticFireDateUtc,
-    //   required   this.staticFireDateUnix,
-    //   required   this.timeline,
-    //  required    this.crew,
-    //    required  this.lastDateUpdate,
-    //  required    this.lastLlLaunchDate,
-    //  required    this.lastLlUpdate,
-    //   required   this.lastWikiLaunchDate,
-    //   required   this.lastWikiRevision,
-    //    required  this.lastWikiUpdate,
-    //   required   this.launchDateSource,
   });
 
   int flightNumber;
@@ -53,26 +36,14 @@ class Lanches {
   bool? isTentative;
   String? tentativeMaxPrecision;
   bool? tbd;
-  // int launchWindow;
+
   Rocket? rocket;
   List<String>? ships;
-  //Telemetry? telemetry;
+
   LaunchSite? launchSite;
   bool? launchSuccess;
-  // LaunchFailureDetails launchFailureDetails;
-  // Links links;
+
   String? details;
-  //DateTime staticFireDateUtc;
-  //int staticFireDateUnix;
-  //Map<String, int> timeline;
-  //List<dynamic> crew;
-  // DateTime lastDateUpdate;
-  // DateTime lastLlLaunchDate;
-  // DateTime lastLlUpdate;
-  // DateTime lastWikiLaunchDate;
-  // String lastWikiRevision;
-  // DateTime lastWikiUpdate;
-  // LaunchDateSource launchDateSource;
 
   factory Lanches.fromJson(Map<String, dynamic> json) => Lanches(
         flightNumber: json["flight_number"],
@@ -86,27 +57,12 @@ class Lanches {
         isTentative: json["is_tentative"],
         tentativeMaxPrecision: json["tentative_max_precision"],
         tbd: json["tbd"],
-        //launchWindow: json["launch_window"] == null ? null : json["launch_window"],
         rocket: Rocket.fromJson(json["rocket"]),
         ships: List<String>.from(json["ships"].map((x) => x)),
-        //telemetry: Telemetry.fromJson(json["telemetry"]),
         launchSite: LaunchSite.fromJson(json["launch_site"]),
         launchSuccess:
             json["launch_success"] == null ? null : json["launch_success"],
-        //launchFailureDetails: json["launch_failure_details"] == null ? null : LaunchFailureDetails.fromJson(json["launch_failure_details"]),
-        //links: Links.fromJson(json["links"]),
         details: json["details"] == null ? null : json["details"],
-        //staticFireDateUtc: json["static_fire_date_utc"] == null ? null : DateTime.parse(json["static_fire_date_utc"]),
-        //staticFireDateUnix: json["static_fire_date_unix"] == null ? null : json["static_fire_date_unix"],
-        //timeline: json["timeline"] == null ? null : Map.from(json["timeline"]).map((k, v) => MapEntry<String, int>(k, v == null ? null : v)),
-        //crew: json["crew"] == null ? null : List<dynamic>.from(json["crew"].map((x) => x)),
-        //lastDateUpdate: json["last_date_update"] == null ? null : DateTime.parse(json["last_date_update"]),
-        //lastLlLaunchDate: json["last_ll_launch_date"] == null ? null : DateTime.parse(json["last_ll_launch_date"]),
-        //lastLlUpdate: json["last_ll_update"] == null ? null : DateTime.parse(json["last_ll_update"]),
-        //lastWikiLaunchDate: json["last_wiki_launch_date"] == null ? null : DateTime.parse(json["last_wiki_launch_date"]),
-        //lastWikiRevision: json["last_wiki_revision"] == null ? null : json["last_wiki_revision"],
-        //lastWikiUpdate: json["last_wiki_update"] == null ? null : DateTime.parse(json["last_wiki_update"]),
-        //launchDateSource: json["launch_date_source"] == null ? null : launchDateSourceValues.map[json["launch_date_source"]],
       );
 }
 
@@ -179,8 +135,8 @@ final siteNameLongValues = EnumValues({
 class Rocket {
   Rocket({
     this.rocketId,
-   required this.rocketName,
-   required this.rocketType,
+    required this.rocketName,
+    required this.rocketType,
     this.firstStage,
     this.secondStage,
     this.fairings,
@@ -225,8 +181,6 @@ class Fairings {
         recovered: json["recovered"] == null ? null : json["recovered"],
         ship: json["ship"] == null ? null : shipValues.map[json["ship"]],
       );
-
-
 }
 
 enum Ship { GOMSTREE, GOSEARCHER, GOMSCHIEF }
@@ -251,7 +205,7 @@ class FirstStage {
 
 class Core {
   Core({
-   required this.coreSerial,
+    required this.coreSerial,
     this.flight,
     this.block,
     this.gridfins,
@@ -259,7 +213,7 @@ class Core {
     this.reused,
     this.landSuccess,
     this.landingIntent,
-   required this.landingType,
+    required this.landingType,
     this.landingVehicle,
   });
 
@@ -275,7 +229,8 @@ class Core {
   LandingVehicle? landingVehicle;
 
   factory Core.fromJson(Map<String, dynamic> json) => Core(
-        coreSerial: json["core_serial"] == null ? 'Invalid' : json["core_serial"],
+        coreSerial:
+            json["core_serial"] == null ? 'Invalid' : json["core_serial"],
         flight: json["flight"] == null ? null : json["flight"],
         block: json["block"] == null ? null : json["block"],
         gridfins: json["gridfins"] == null ? null : json["gridfins"],
@@ -398,7 +353,8 @@ class Payload {
         noradId: List<int>.from(json["norad_id"].map((x) => x)),
         reused: json["reused"],
         customers: List<String>.from(json["customers"].map((x) => x)),
-        nationality: json["nationality"] == null ? 'Invalid' : json["nationality"],
+        nationality:
+            json["nationality"] == null ? 'Invalid' : json["nationality"],
         manufacturer:
             json["manufacturer"] == null ? null : json["manufacturer"],
         payloadType: payloadTypeValues.map[json["payload_type"]],

@@ -3,6 +3,7 @@ import 'package:spacex/lanch.dart';
 import 'widget/scrollable_widget.dart';
 
 class TableScreen extends StatefulWidget {
+  //Pass variable object to widget
   TableScreen({this.tableData});
   List<Lanches>? tableData;
   @override
@@ -18,11 +19,7 @@ class _TableScreenState extends State<TableScreen> {
   void initState() {
     super.initState();
     dataForTable = widget.tableData;
-    print(widget.tableData);
-
-    // String missionName = [i]['mission_name'];
-    // DateTime lanchDate = DateTime.parse([i]['launch_date_utc']);
-    // bool lanchSuceess = [i]['launch_success'];
+    //print(widget.tableData);
   }
 
   void storeData(inputData) {}
@@ -57,7 +54,7 @@ class _TableScreenState extends State<TableScreen> {
           lanches.launchDateUtc,
           lanches.launchSuccess
         ];
-
+        //User i for iterator number for get Class Object.
         return DataRow(cells: getCells(cells, i++));
       }).toList();
 
@@ -164,6 +161,7 @@ class _TableScreenState extends State<TableScreen> {
     });
   }
 
+  // String comparison
   int compareString(bool ascending, String valueA, String valueB) {
     return (ascending ? valueA.compareTo(valueB) : valueB.compareTo(valueA));
   }
