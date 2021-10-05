@@ -60,9 +60,6 @@ class _TableScreenState extends State<TableScreen> {
 
   List<DataCell> getCells(List<dynamic> cells, int i) => cells
       .map((data) => DataCell(Text('$data'), onTap: () {
-            //  const SimpleDialog(
-            //   title: Text('test'),
-            // );
             AlertDialog alert = AlertDialog(
               title: Text(
                 'Mission ' + dataForTable![i].missionName + ' Informations:',
