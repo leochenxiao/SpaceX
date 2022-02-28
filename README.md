@@ -7,7 +7,7 @@
 Include a LoadingScreen page, a DataTable page and a simple dialog window pop up inside DataTable page.
 
 
-### Pages/
+### Pages
 Loading Screen: 
 1. gathering API Data via service/api_connect.dart
 2. JSON parsing via service/lanch.dart
@@ -18,14 +18,14 @@ Table Screen:
 2. Data Sorting
 3. Data Display
 
-### Service/
+### Service
 API Connect:  
 1. Loading API data
 2. Pass data into Loading Screen
 
 Lanches: Parse JSON data into Dart.Object
 
-### Widget/
+### Widget
 scrollable widget: create a scroll wideget template
 
 
